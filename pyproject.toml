@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "entsoe_api"
+version = "0.1.0"
+description = "A project that uses the ENTSO-E API to fetch and save data."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [
+    { name = "Karol Pilot", email = "pilot.karol.lh@gmail.com" },
+]
+keywords = ["entsoe", "energy", "api", "data"]
+
+dependencies = [
+    "requests",
+    "pandas",
+    "click",
+]
+
+[project.scripts]
+entsoe-fetcher = "entsoe_api.scripts.entsoe_fetcher:fetch_entsoe_data"
+
+[tool.setuptools.packages.find]
+include = ["entsoe_api*", "entsoe_api.scripts*"]

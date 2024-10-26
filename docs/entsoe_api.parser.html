@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html class="writer-html5" data-content_root="./" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>entsoe_api.parser package &mdash; Entsoe scraper 1.0.0 documentation</title>
+    <link href="_static/pygments.css?v=80d5e7a1" rel="stylesheet" type="text/css"/>
+    <link href="_static/css/theme.css?v=e59714d7" rel="stylesheet" type="text/css"/>
+
+
+    <script src="_static/jquery.js?v=5d32c60e"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="_static/documentation_options.js?v=8d563738"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link href="genindex.html" rel="index" title="Index"/>
+    <link href="search.html" rel="search" title="Search"/>
+</head>
+
+<body class="wy-body-for-nav">
+<div class="wy-grid-for-nav">
+    <nav class="wy-nav-side" data-toggle="wy-nav-shift">
+        <div class="wy-side-scroll">
+            <div class="wy-side-nav-search">
+
+
+                <a class="icon icon-home" href="index.html">
+                    Entsoe scraper
+                </a>
+                <div role="search">
+                    <form action="search.html" class="wy-form" id="rtd-search-form" method="get">
+                        <input aria-label="Search docs" name="q" placeholder="Search docs" type="text"/>
+                        <input name="check_keywords" type="hidden" value="yes"/>
+                        <input name="area" type="hidden" value="default"/>
+                    </form>
+                </div>
+            </div>
+            <div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+                <!-- Local TOC -->
+                <div class="local-toc">
+                    <ul>
+                        <li><a class="reference internal" href="#">entsoe_api.parser package</a>
+                            <ul>
+                                <li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+                                <li><a class="reference internal" href="#submodules">Submodules</a></li>
+                                <li><a class="reference internal" href="#module-entsoe_api.parser.data_parser">entsoe_api.parser.data_parser
+                                    module</a>
+                                    <ul>
+                                        <li><a class="reference internal"
+                                               href="#entsoe_api.parser.data_parser.DataParser"><code
+                                                class="docutils literal notranslate"><span class="pre">DataParser</span></code></a>
+                                            <ul>
+                                                <li><a class="reference internal"
+                                                       href="#entsoe_api.parser.data_parser.DataParser.parse_data"><code
+                                                        class="docutils literal notranslate"><span class="pre">DataParser.parse_data()</span></code></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a class="reference internal" href="#module-entsoe_api.parser.exceptions">entsoe_api.parser.exceptions
+                                    module</a>
+                                    <ul>
+                                        <li><a class="reference internal"
+                                               href="#entsoe_api.parser.exceptions.ParserError"><code
+                                                class="docutils literal notranslate"><span
+                                                class="pre">ParserError</span></code></a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="reference internal" href="#module-entsoe_api.parser.parser_interface">entsoe_api.parser.parser_interface
+                                    module</a>
+                                    <ul>
+                                        <li><a class="reference internal"
+                                               href="#entsoe_api.parser.parser_interface.ParserInterface"><code
+                                                class="docutils literal notranslate"><span
+                                                class="pre">ParserInterface</span></code></a>
+                                            <ul>
+                                                <li><a class="reference internal"
+                                                       href="#entsoe_api.parser.parser_interface.ParserInterface.parse"><code
+                                                        class="docutils literal notranslate"><span class="pre">ParserInterface.parse()</span></code></a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a class="reference internal" href="#module-entsoe_api.parser">Module contents</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+        <nav aria-label="Mobile navigation menu" class="wy-nav-top">
+            <i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+            <a href="index.html">Entsoe scraper</a>
+        </nav>
+
+        <div class="wy-nav-content">
+            <div class="rst-content">
+                <div aria-label="Page navigation" role="navigation">
+                    <ul class="wy-breadcrumbs">
+                        <li><a aria-label="Home" class="icon icon-home" href="index.html"></a></li>
+                        <li class="breadcrumb-item active">entsoe_api.parser package</li>
+                        <li class="wy-breadcrumbs-aside">
+                            <a href="_sources/entsoe_api.parser.rst.txt" rel="nofollow"> View page source</a>
+                        </li>
+                    </ul>
+                    <hr/>
+                </div>
+                <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+                    <div itemprop="articleBody">
+
+                        <section id="entsoe-api-parser-package">
+                            <h1>entsoe_api.parser package<a class="headerlink" href="#entsoe-api-parser-package"
+                                                            title="Link to this heading"></a></h1>
+                            <section id="subpackages">
+                                <h2>Subpackages<a class="headerlink" href="#subpackages"
+                                                  title="Link to this heading"></a></h2>
+                                <div class="toctree-wrapper compound">
+                                    <ul>
+                                        <li class="toctree-l1"><a class="reference internal"
+                                                                  href="entsoe_api.parser.parser_extensions.html">entsoe_api.parser.parser_extensions
+                                            package</a>
+                                            <ul>
+                                                <li class="toctree-l2"><a class="reference internal"
+                                                                          href="entsoe_api.parser.parser_extensions.html#submodules">Submodules</a>
+                                                </li>
+                                                <li class="toctree-l2"><a class="reference internal"
+                                                                          href="entsoe_api.parser.parser_extensions.html#module-entsoe_api.parser.parser_extensions.price_data_parser">entsoe_api.parser.parser_extensions.price_data_parser
+                                                    module</a>
+                                                    <ul>
+                                                        <li class="toctree-l3"><a class="reference internal"
+                                                                                  href="entsoe_api.parser.parser_extensions.html#entsoe_api.parser.parser_extensions.price_data_parser.PriceDataParser"><code
+                                                                class="docutils literal notranslate"><span class="pre">PriceDataParser</span></code></a>
+                                                            <ul>
+                                                                <li class="toctree-l4"><a class="reference internal"
+                                                                                          href="entsoe_api.parser.parser_extensions.html#entsoe_api.parser.parser_extensions.price_data_parser.PriceDataParser.parse"><code
+                                                                        class="docutils literal notranslate"><span
+                                                                        class="pre">PriceDataParser.parse()</span></code></a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="toctree-l2"><a class="reference internal"
+                                                                          href="entsoe_api.parser.parser_extensions.html#module-entsoe_api.parser.parser_extensions.production_data_parser">entsoe_api.parser.parser_extensions.production_data_parser
+                                                    module</a>
+                                                    <ul>
+                                                        <li class="toctree-l3"><a class="reference internal"
+                                                                                  href="entsoe_api.parser.parser_extensions.html#entsoe_api.parser.parser_extensions.production_data_parser.ProductionDataParser"><code
+                                                                class="docutils literal notranslate"><span class="pre">ProductionDataParser</span></code></a>
+                                                            <ul>
+                                                                <li class="toctree-l4"><a class="reference internal"
+                                                                                          href="entsoe_api.parser.parser_extensions.html#entsoe_api.parser.parser_extensions.production_data_parser.ProductionDataParser.parse"><code
+                                                                        class="docutils literal notranslate"><span
+                                                                        class="pre">ProductionDataParser.parse()</span></code></a>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                                <li class="toctree-l2"><a class="reference internal"
+                                                                          href="entsoe_api.parser.parser_extensions.html#module-entsoe_api.parser.parser_extensions">Module
+                                                    contents</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </section>
+                            <section id="submodules">
+                                <h2>Submodules<a class="headerlink" href="#submodules"
+                                                 title="Link to this heading"></a></h2>
+                            </section>
+                            <section id="module-entsoe_api.parser.data_parser">
+                                <span id="entsoe-api-parser-data-parser-module"></span>
+                                <h2>entsoe_api.parser.data_parser module<a class="headerlink"
+                                                                           href="#module-entsoe_api.parser.data_parser"
+                                                                           title="Link to this heading"></a></h2>
+                                <dl class="py class">
+                                    <dt class="sig sig-object py" id="entsoe_api.parser.data_parser.DataParser">
+                                        <em class="property"><span class="pre">class</span><span class="w"> </span></em><span
+                                            class="sig-prename descclassname"><span class="pre">entsoe_api.parser.data_parser.</span></span><span
+                                            class="sig-name descname"><span class="pre">DataParser</span></span><a
+                                            class="headerlink" href="#entsoe_api.parser.data_parser.DataParser"
+                                            title="Link to this definition"></a></dt>
+                                    <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span
+                                            class="pre">object</span></code></p>
+                                        <p>A class for parsing various types of XML data into pandas DataFrame.</p>
+                                        <dl class="py method">
+                                            <dt class="sig sig-object py"
+                                                id="entsoe_api.parser.data_parser.DataParser.parse_data">
+                                                <span class="sig-name descname"><span
+                                                        class="pre">parse_data</span></span><span
+                                                    class="sig-paren">(</span><em class="sig-param"><span
+                                                    class="n"><span class="pre">xml_data</span></span></em>, <em
+                                                    class="sig-param"><span class="n"><span
+                                                    class="pre">document_type</span></span></em><span class="sig-paren">)</span><a
+                                                    class="headerlink"
+                                                    href="#entsoe_api.parser.data_parser.DataParser.parse_data"
+                                                    title="Link to this definition"></a></dt>
+                                            <dd><p>Main method to parse the XML data based on document type.</p>
+                                                <dl class="field-list simple">
+                                                    <dt class="field-odd">Parameters<span class="colon">:</span></dt>
+                                                    <dd class="field-odd">
+                                                        <ul class="simple">
+                                                            <li><p><strong>xml_data</strong> (<em>bytes</em>) – The XML
+                                                                data to parse.</p></li>
+                                                            <li><p><strong>document_type</strong> (<a
+                                                                    class="reference internal"
+                                                                    href="entsoe_api.enums.html#entsoe_api.enums.DocumentType"
+                                                                    title="entsoe_api.enums.DocumentType"><em>DocumentType</em></a>)
+                                                                – The type of document to parse.</p></li>
+                                                        </ul>
+                                                    </dd>
+                                                    <dt class="field-even">Returns<span class="colon">:</span></dt>
+                                                    <dd class="field-even"><p>Parsed data in DataFrame format.</p>
+                                                    </dd>
+                                                    <dt class="field-odd">Return type<span class="colon">:</span></dt>
+                                                    <dd class="field-odd"><p>pd.DataFrame</p>
+                                                    </dd>
+                                                </dl>
+                                            </dd>
+                                        </dl>
+
+                                    </dd>
+                                </dl>
+
+                            </section>
+                            <section id="module-entsoe_api.parser.exceptions">
+                                <span id="entsoe-api-parser-exceptions-module"></span>
+                                <h2>entsoe_api.parser.exceptions module<a class="headerlink"
+                                                                          href="#module-entsoe_api.parser.exceptions"
+                                                                          title="Link to this heading"></a></h2>
+                                <dl class="py exception">
+                                    <dt class="sig sig-object py" id="entsoe_api.parser.exceptions.ParserError">
+                                        <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span
+                                            class="sig-prename descclassname"><span class="pre">entsoe_api.parser.exceptions.</span></span><span
+                                            class="sig-name descname"><span class="pre">ParserError</span></span><a
+                                            class="headerlink" href="#entsoe_api.parser.exceptions.ParserError"
+                                            title="Link to this definition"></a></dt>
+                                    <dd><p>Bases: <a class="reference internal"
+                                                     href="entsoe_api.html#entsoe_api.exceptions.EntsoeApiError"
+                                                     title="entsoe_api.exceptions.EntsoeApiError"><code
+                                            class="xref py py-class docutils literal notranslate"><span class="pre">EntsoeApiError</span></code></a>
+                                    </p>
+                                        <p>Raised when an error occurs while parsing data</p>
+                                    </dd>
+                                </dl>
+
+                            </section>
+                            <section id="module-entsoe_api.parser.parser_interface">
+                                <span id="entsoe-api-parser-parser-interface-module"></span>
+                                <h2>entsoe_api.parser.parser_interface module<a class="headerlink"
+                                                                                href="#module-entsoe_api.parser.parser_interface"
+                                                                                title="Link to this heading"></a></h2>
+                                <dl class="py class">
+                                    <dt class="sig sig-object py"
+                                        id="entsoe_api.parser.parser_interface.ParserInterface">
+                                        <em class="property"><span class="pre">class</span><span class="w"> </span></em><span
+                                            class="sig-prename descclassname"><span class="pre">entsoe_api.parser.parser_interface.</span></span><span
+                                            class="sig-name descname"><span class="pre">ParserInterface</span></span><a
+                                            class="headerlink"
+                                            href="#entsoe_api.parser.parser_interface.ParserInterface"
+                                            title="Link to this definition"></a></dt>
+                                    <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span
+                                            class="pre">ABC</span></code></p>
+                                        <dl class="py method">
+                                            <dt class="sig sig-object py"
+                                                id="entsoe_api.parser.parser_interface.ParserInterface.parse">
+                                                <em class="property"><span class="pre">abstract</span><span
+                                                        class="w"> </span><span class="pre">classmethod</span><span
+                                                        class="w"> </span></em><span class="sig-name descname"><span
+                                                    class="pre">parse</span></span><span class="sig-paren">(</span><em
+                                                    class="sig-param"><span class="n"><span class="pre">xml_data</span></span></em><span
+                                                    class="sig-paren">)</span><a class="headerlink"
+                                                                                 href="#entsoe_api.parser.parser_interface.ParserInterface.parse"
+                                                                                 title="Link to this definition"></a>
+                                            </dt>
+                                            <dd>
+                                                <dl class="field-list simple">
+                                                    <dt class="field-odd">Return type<span class="colon">:</span></dt>
+                                                    <dd class="field-odd"><p><span
+                                                            class="sphinx_autodoc_typehints-type"><code
+                                                            class="xref py py-class docutils literal notranslate"><span
+                                                            class="pre">DataFrame</span></code></span></p>
+                                                    </dd>
+                                                </dl>
+                                            </dd>
+                                        </dl>
+
+                                    </dd>
+                                </dl>
+
+                            </section>
+                            <section id="module-entsoe_api.parser">
+                                <span id="module-contents"></span>
+                                <h2>Module contents<a class="headerlink" href="#module-entsoe_api.parser"
+                                                      title="Link to this heading"></a></h2>
+                            </section>
+                        </section>
+
+
+                    </div>
+                </div>
+                <footer>
+
+                    <hr/>
+
+                    <div role="contentinfo">
+                        <p>&#169; Copyright 2024, Karol Pilot.</p>
+                    </div>
+
+                    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+                    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+                    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+
+                </footer>
+            </div>
+        </div>
+    </section>
+</div>
+<script>
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(true);
+    });
+</script>
+
+</body>
+</html>
