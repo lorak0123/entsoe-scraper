@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html class="writer-html5" data-content_root="./" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Welcome to Entsoe API documentation! &mdash; Entsoe scraper 1.0.0 documentation</title>
+    <link href="_static/pygments.css?v=80d5e7a1" rel="stylesheet" type="text/css"/>
+    <link href="_static/css/theme.css?v=e59714d7" rel="stylesheet" type="text/css"/>
+
+
+    <script src="_static/jquery.js?v=5d32c60e"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="_static/documentation_options.js?v=8d563738"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link href="genindex.html" rel="index" title="Index"/>
+    <link href="search.html" rel="search" title="Search"/>
+    <link href="modules.html" rel="next" title="Modules"/>
+</head>
+
+<body class="wy-body-for-nav">
+<div class="wy-grid-for-nav">
+    <nav class="wy-nav-side" data-toggle="wy-nav-shift">
+        <div class="wy-side-scroll">
+            <div class="wy-side-nav-search">
+
+
+                <a class="icon icon-home" href="#">
+                    Entsoe scraper
+                </a>
+                <div role="search">
+                    <form action="search.html" class="wy-form" id="rtd-search-form" method="get">
+                        <input aria-label="Search docs" name="q" placeholder="Search docs" type="text"/>
+                        <input name="check_keywords" type="hidden" value="yes"/>
+                        <input name="area" type="hidden" value="default"/>
+                    </form>
+                </div>
+            </div>
+            <div aria-label="Navigation menu" class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation">
+                <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="modules.html">Modules</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <section class="wy-nav-content-wrap" data-toggle="wy-nav-shift">
+        <nav aria-label="Mobile navigation menu" class="wy-nav-top">
+            <i class="fa fa-bars" data-toggle="wy-nav-top"></i>
+            <a href="#">Entsoe scraper</a>
+        </nav>
+
+        <div class="wy-nav-content">
+            <div class="rst-content">
+                <div aria-label="Page navigation" role="navigation">
+                    <ul class="wy-breadcrumbs">
+                        <li><a aria-label="Home" class="icon icon-home" href="#"></a></li>
+                        <li class="breadcrumb-item active">Welcome to Entsoe API documentation!</li>
+                        <li class="wy-breadcrumbs-aside">
+                            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+                        </li>
+                    </ul>
+                    <hr/>
+                </div>
+                <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
+                    <div itemprop="articleBody">
+
+                        <section id="welcome-to-entsoe-api-documentation">
+                            <h1>Welcome to Entsoe API documentation!<a class="headerlink"
+                                                                       href="#welcome-to-entsoe-api-documentation"
+                                                                       title="Link to this heading"></a></h1>
+                            <div class="toctree-wrapper compound">
+                                <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+                                <ul>
+                                    <li class="toctree-l1"><a class="reference internal" href="modules.html">Modules</a>
+                                        <ul>
+                                            <li class="toctree-l2"><a class="reference internal" href="entsoe_api.html">entsoe_api
+                                                package</a></li>
+                                            <li class="toctree-l2"><a class="reference internal"
+                                                                      href="entsoe_api.enums.html">entsoe_api.enums
+                                                package</a></li>
+                                            <li class="toctree-l2"><a class="reference internal"
+                                                                      href="entsoe_api.parser.html">entsoe_api.parser
+                                                package</a></li>
+                                            <li class="toctree-l2"><a class="reference internal"
+                                                                      href="entsoe_api.parser.parser_extensions.html">entsoe_api.parser.parser_extensions
+                                                package</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <section id="installation">
+                                <h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a>
+                                </h2>
+                                <p>To install the package, run:</p>
+                                <div class="highlight-bash notranslate">
+                                    <div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span
+                                            class="w"> </span>entsoe_api
+</pre>
+                                    </div>
+                                </div>
+                                <p>Usage</p>
+                                <p>To use the package, run:</p>
+                                <div class="highlight-python notranslate">
+                                    <div class="highlight"><pre><span></span><span class="kn">from</span> <span
+                                            class="nn">entsoe_api.api</span> <span class="kn">import</span> <span
+                                            class="n">EntsoeAPI</span>
+<span class="kn">from</span> <span class="nn">entsoe_api.enums</span> <span class="kn">import</span> <span class="n">DocumentType</span><span
+                                                class="p">,</span> <span class="n">ProcessType</span><span
+                                                class="p">,</span> <span class="n">DomainType</span><span
+                                                class="p">,</span> <span class="n">PsrType</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span
+                                                class="n">datetime</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">EntsoeAPI</span><span class="p">(</span><span
+                                                class="n">api_key</span><span class="o">=</span><span class="s2">&quot;YOUR_API_KEY&quot;</span><span
+                                                class="p">)</span>
+
+<span class="n">start_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span
+                                                class="mi">2022</span><span class="p">,</span> <span class="mi">1</span><span
+                                                class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">end_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span
+                                                class="mi">2022</span><span class="p">,</span> <span class="mi">1</span><span
+                                                class="p">,</span> <span class="mi">31</span><span class="p">)</span>
+<span class="n">document_type</span> <span class="o">=</span> <span class="n">DocumentType</span><span
+                                                class="o">.</span><span class="n">ACTUAL_GENERATION_PER_TYPE</span>
+<span class="n">process_type</span> <span class="o">=</span> <span class="n">ProcessType</span><span
+                                                class="o">.</span><span class="n">REALISED</span>
+<span class="n">domain</span> <span class="o">=</span> <span class="n">DomainType</span><span class="o">.</span><span
+                                                class="n">DE</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">fetch_data</span><span
+                                                class="p">(</span><span class="n">start_date</span><span
+                                                class="p">,</span> <span class="n">end_date</span><span
+                                                class="p">,</span> <span class="n">document_type</span><span
+                                                class="p">,</span> <span class="n">process_type</span><span
+                                                class="p">,</span> <span class="n">domain</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span
+                                                class="s2">&quot;output.csv&quot;</span><span class="p">,</span> <span
+                                                class="n">index</span><span class="o">=</span><span
+                                                class="kc">False</span><span class="p">)</span>
+</pre>
+                                    </div>
+                                </div>
+                            </section>
+                        </section>
+
+
+                    </div>
+                </div>
+                <footer>
+                    <div aria-label="Footer" class="rst-footer-buttons" role="navigation">
+                        <a accesskey="n" class="btn btn-neutral float-right" href="modules.html" rel="next"
+                           title="Modules">Next <span aria-hidden="true" class="fa fa-arrow-circle-right"></span></a>
+                    </div>
+
+                    <hr/>
+
+                    <div role="contentinfo">
+                        <p>&#169; Copyright 2024, Karol Pilot.</p>
+                    </div>
+
+                    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+                    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+                    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+
+                </footer>
+            </div>
+        </div>
+    </section>
+</div>
+<script>
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable(true);
+    });
+</script>
+
+</body>
+</html>
