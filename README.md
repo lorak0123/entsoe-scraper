@@ -15,6 +15,17 @@ provides an easy-to-use interface to retrieve data and output it in a structured
 
 ---
 
+## Documentation
+
+Full project documentation is available in the `docs/` directory:
+
+- [Documentation index](docs/index.md)
+- [Transparency Platform reference](docs/transparency_platform.md) — detailed explanation of chunking, time handling and gap filling
+
+You can open these files directly or serve the `docs/` directory with a static site generator (e.g. MkDocs).
+
+---
+
 ## Installation
 
 To install the package, clone this repository and install it using `pip`:
@@ -29,12 +40,12 @@ pip install .
 
 ### Command Line Interface (CLI)
 
-The `entsoe-fetcher` command-line tool allows you to fetch data and save it to a file.
+The `entsoe_fetcher` script allows you to fetch data and save it to a file.
 
 #### Example Command
 
 ```bash
-entsoe-fetcher -s 2022-01-01 -e 2024-10-01 -d ACTUAL_GENERATION_PER_TYPE -p REALISED -m DE -o actual_gen_per_type_realised.csv -k YOUR_API_KEY
+python -m entsoe_api.scripts.entsoe_fetcher -s 2022-01-01 -e 2024-10-01 -d ACTUAL_GENERATION_PER_TYPE -p REALISED -i DE -f actual_gen_per_type_realised.csv -k YOUR_API_KEY
 ```
 
 #### CLI Options
@@ -45,8 +56,9 @@ entsoe-fetcher -s 2022-01-01 -e 2024-10-01 -d ACTUAL_GENERATION_PER_TYPE -p REAL
 | `-e` | End date (e.g., `2024-10-01`)                      |
 | `-d` | Document type (e.g., `ACTUAL_GENERATION_PER_TYPE`) |
 | `-p` | Process type (e.g., `REALISED`)                    |
-| `-m` | Market domain (e.g., `DE`)                         |
-| `-o` | Output CSV filename                                |
+| `-i` | In-domain (e.g., `DE`)                             |
+| `-o` | Out-domain (optional)                              |
+| `-f` | Output CSV filename                                |
 | `-k` | Your ENTSO-E API key                               |
 
 ---
@@ -66,10 +78,11 @@ start_date = datetime(2022, 1, 1)
 end_date = datetime(2022, 1, 31)
 document_type = DocumentType.ACTUAL_GENERATION_PER_TYPE
 process_type = ProcessType.REALISED
-domain = DomainType.DE
+in_domain = DomainType.DE
 
-data = api.fetch_data(start_date, end_date, document_type, process_type, domain)
-data.to_csv("output.csv", index=False)
+# Example (no out_domain specified)
+data = api.fetch_data(start_date, end_date, document_type, process_type, in_domain)
+data.to_csv("output.csv")
 ```
 
 ---
@@ -81,12 +94,6 @@ data.to_csv("output.csv", index=False)
 - **scripts/entsoe_fetcher.py**: CLI entry point
 - **entsoe_api/enums**: Enums defining document, process, and domain types
 - **entsoe_api/exceptions.py**: Custom exceptions
-
----
-
-## Documentation
-
-For complete documentation, see the `docs/` directory.
 
 ---
 

@@ -20,7 +20,7 @@ class PriceDataParser(ParserInterface):
         Returns:
             pd.DataFrame: The DataFrame with gaps filled.
         """
-        idx = pd.date_range(start=time_start, end=time_end - timedelta(minutes=interval), freq=f'{interval}min')
+        idx = pd.date_range(start=time_start + timedelta(minutes=interval), end=time_end, freq=f'{interval}min')
         return df.reindex(idx, method='ffill').rename_axis(index='timestamp')
 
     @classmethod
@@ -56,7 +56,7 @@ class PriceDataParser(ParserInterface):
                 price = float(point.find('ns:price.amount', namespace).text)
 
                 data_rows.append({
-                    'timestamp': start_date + timedelta(minutes=interval_minutes * (position - 1)),
+                    'timestamp': start_date + timedelta(minutes=interval_minutes * position),
                     'Price': price,
                     'MoneyUnit': money_unit,
                     'EnergyUnit': energy_unit,

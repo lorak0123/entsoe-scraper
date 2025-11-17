@@ -14,21 +14,26 @@ from entsoe_api.utils import LOGGER
               help="DocumentType for the request.")
 @click.option('--process-type', '-p', required=True, type=click.Choice([e.name for e in ProcessType]),
               help="ProcessType for the request.")
-@click.option('--domain', '-m', required=True, type=click.Choice([e.name for e in DomainType]),
-              help="DomainType for the request.")
+@click.option('--in-domain', '-i', required=True, type=click.Choice([e.name for e in DomainType]),
+              help="InDomainType for the request.")
+@click.option('--out-domain', '-o', default=None, type=click.Choice([e.name for e in DomainType]),
+              help="OutDomainType for the request.")
 @click.option('--psr-type', '-r', default='ALL', type=click.Choice([e.name for e in PsrType]),
               help="PsrType for the request. Defaults to ALL.")
-@click.option('--output', '-o', required=True, help="Output CSV file path.")
+@click.option('--output', '-f', help="Output file path for the CSV file.", type=str)
 @click.option('--api-key', '-k', required=True, help="Your ENTSO-E API key.")
+@click.option('--chunk_size', '-c', default=30, help="Chunk size for fetching data.", type=int)
 def fetch_entsoe_data(
-        start_date: str,
-        end_date: str,
-        document_type: str,
-        process_type: str,
-        domain: str,
-        psr_type: str,
-        output: str,
-        api_key: str,
+    start_date: str,
+    end_date: str,
+    document_type: str,
+    process_type: str,
+    in_domain: str,
+    out_domain: str,
+    psr_type: str,
+    output: str,
+    api_key: str,
+    chunk_size: int
 ):
     """
     Fetch data from the ENTSO-E Transparency API and save it to a CSV file.
@@ -39,7 +44,7 @@ def fetch_entsoe_data(
         end_date_dt = datetime.strptime(end_date, '%Y-%m-%d')
 
         # Initialize the API client
-        entsoe_api = EntsoeAPI(api_key)
+        entsoe_api = EntsoeAPI(api_key, max_period_days=chunk_size)
 
         LOGGER.info(f"Fetching data from {start_date} to {end_date}...")
 
@@ -49,9 +54,13 @@ def fetch_entsoe_data(
             end_date=end_date_dt,
             document_type=DocumentType[document_type],
             process_type=ProcessType[process_type],
-            domain=DomainType[domain],
-            psr_type=PsrType[psr_type] if psr_type != 'ALL' else 'ALL'
+            in_domain=DomainType[in_domain],
+            out_domain=DomainType[out_domain] if out_domain else None,
+            psr_type=PsrType[psr_type] if psr_type != 'ALL' else PsrType.ALL,
         )
+
+        if not output:
+            output = f"{document_type}-{process_type}-{in_domain}-{out_domain}-{psr_type}-{start_date}-{end_date}.csv"
 
         LOGGER.info(f"Saving data to {output}...")
 
@@ -64,7 +73,3 @@ def fetch_entsoe_data(
         LOGGER.error(f"Error fetching data from ENTSO-E API: {e}")
     except Exception as e:
         LOGGER.error(f"Unexpected error: {e}")
-
-
-if __name__ == "__main__":
-    fetch_entsoe_data()

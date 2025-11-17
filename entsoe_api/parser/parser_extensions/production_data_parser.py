@@ -28,7 +28,7 @@ class ProductionDataParser(ParserInterface):
         for period in time_series_elements:
             psr_type = period.find('.//ns:psrType', namespace).text
             start_date = datetime.strptime(period.find('.//ns:timeInterval/ns:start', namespace).text,
-                                           '%Y-%m-%dT%H:%MZ')
+                                          '%Y-%m-%dT%H:%MZ')
             resolution = period.find('.//ns:resolution', namespace).text
             interval_minutes = cls._get_resolution_interval(resolution)
 
@@ -37,7 +37,7 @@ class ProductionDataParser(ParserInterface):
                 quantity = float(point.find('ns:quantity', namespace).text)
 
                 data_rows.append({
-                    'timestamp': start_date + timedelta(minutes=interval_minutes * (position - 1)),
+                    'timestamp': start_date + timedelta(minutes=interval_minutes * position),
                     'PsrType': PsrType(psr_type).name,
                     'Quantity': quantity
                 })
