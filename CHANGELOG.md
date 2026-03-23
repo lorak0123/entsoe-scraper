@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+
 ---
+
+## [Unreleased]
+
+### Added
+- Added new domain codes to `DomainType` enum.
 
 ## [1.1.0] - 2025-11-17
 
