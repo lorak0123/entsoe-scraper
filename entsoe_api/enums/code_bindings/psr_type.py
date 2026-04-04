@@ -36,6 +36,7 @@ class PsrType(CodeBinding):
         DC_LINK (str): DC link type (code 'B22').
         SUBSTATION (str): Substation type (code 'B23').
         TRANSFORMER (str): Transformer type (code 'B24').
+        ENERGY_STORAGE (str): Energy storage type (code 'B25').
         ALL (str): All types of energy (code 'ALL').
     """
 
@@ -66,4 +67,5 @@ class PsrType(CodeBinding):
     DC_LINK = 'B22'
     SUBSTATION = 'B23'
     TRANSFORMER = 'B24'
+    ENERGY_STORAGE = 'B25'
     ALL = 'ALL'
