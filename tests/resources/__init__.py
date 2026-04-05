@@ -63,4 +63,53 @@ RESOURCES_CONFIG = [
         "expected_end_timestamp": datetime(2026, 4, 5, 0, 0),
         "excepted_errors": None,
     },
+    {
+        "path": "xml_resources/price_document_fr_2016-05-13.xml",
+        "params": dict(
+            start_date=datetime(2016, 5, 12, 22),
+            end_date=datetime(2016, 5, 13, 22),
+            document_type=DocumentType.PRICE_DOCUMENT,
+            process_type=ProcessType.REALISED,
+            in_domain=DomainType.FR,
+        ),
+        "expected_rows": 24,  # max position from xml
+        "expected_columns": ["Price"],
+        "expected_index_name": "timestamp",
+        "expected_start_timestamp": datetime(2016, 5, 12, 22, 0),
+        "expected_end_timestamp": datetime(2016, 5, 13, 22, 0),
+        "excepted_errors": None,
+    },
+    {
+        "path": "xml_resources/system_total_load_es_2024-08-19.xml",
+        "params": dict(
+            start_date=datetime(2024, 8, 18, 22),
+            end_date=datetime(2024, 8, 19, 22),
+            document_type=DocumentType.SYSTEM_TOTAL_LOAD,
+            process_type=ProcessType.DAY_AHEAD,
+            in_domain=DomainType.ES,
+        ),
+        "expected_rows": 96,  # max position from xml
+        "expected_columns": ["unit", "resolution", "Quantity"],
+        "expected_index_name": "timestamp",
+        "expected_start_timestamp": datetime(2024, 8, 18, 22, 0),
+        "expected_end_timestamp": datetime(2024, 8, 19, 22, 0),
+        "excepted_errors": None,
+    },
+    {
+        "path": "xml_resources/aggregated_energy_es-fr_2024-08-19.xml",
+        "params": dict(
+            start_date=datetime(2024, 8, 18, 22),
+            end_date=datetime(2024, 8, 19, 22),
+            document_type=DocumentType.AGGREGATED_ENERGY_DATA_REPORT,
+            process_type=ProcessType.REALISED,
+            in_domain=DomainType.ES,
+            out_domain=DomainType.FR,
+        ),
+        "expected_rows": 96,  # max position from xml
+        "expected_columns": ["unit", "resolution", "Quantity"],
+        "expected_index_name": "timestamp",
+        "expected_start_timestamp": datetime(2024, 8, 18, 22, 0),
+        "expected_end_timestamp": datetime(2024, 8, 19, 22, 0),
+        "excepted_errors": None,
+    },
 ]

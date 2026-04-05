@@ -81,7 +81,7 @@ indent-style = "space"
 
 [tool.pytest.ini_options]
 addopts = """
-    --cov=entsoe_api
+    --cov
     --cov-report=xml:.reports/coverage.xml
     --cov-report=html:.reports/coverage_html
     --cov-report=term

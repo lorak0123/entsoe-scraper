@@ -14,11 +14,8 @@ def test_if_parsers_parse_resources_with_no_errors(
     """Test that the parsers can parse the XML resources without errors."""
     if resource_xml_data is not None and resource_params_document_type is not None and expected_error is None:
         data_parser = DataParser()
-        try:
-            parsed_data = data_parser.parse_data(resource_xml_data, resource_params_document_type)
-            assert parsed_data is not None, "Parsed data should not be None."
-        except Exception as e:
-            pytest.fail(f"Parsing failed with an exception: {e}")
+        parsed_data = data_parser.parse_data(resource_xml_data, resource_params_document_type)
+        assert parsed_data is not None, "Parsed data should not be None."
     else:
         pytest.skip("No XML data or document type provided for this resource, or expected errors are defined.")
 
@@ -35,13 +32,10 @@ def test_if_parsed_data_does_not_exits_start_timestamp(
         and expected_start_timestamp is not None
     ):
         data_parser = DataParser()
-        try:
-            parsed_data = data_parser.parse_data(resource_xml_data, resource_params_document_type)
-            assert parsed_data.index.min() >= expected_start_timestamp, (
-                "Parsed data contains timestamps before the expected start timestamp."
-            )
-        except Exception as e:
-            pytest.fail(f"Parsing failed with an exception: {e}")
+        parsed_data = data_parser.parse_data(resource_xml_data, resource_params_document_type)
+        assert parsed_data.index.min() >= expected_start_timestamp, (
+            "Parsed data contains timestamps before the expected start timestamp."
+        )
     else:
         pytest.skip("No XML data, document type, or expected start timestamp provided for this resource.")
 
@@ -58,13 +52,10 @@ def test_if_parsed_data_does_not_exits_end_timestamp(
         and expected_end_timestamp is not None
     ):
         data_parser = DataParser()
-        try:
-            parsed_data = data_parser.parse_data(resource_xml_data, resource_params_document_type)
-            assert parsed_data.index.max() <= expected_end_timestamp, (
-                "Parsed data contains timestamps after the expected end timestamp."
-            )
-        except Exception as e:
-            pytest.fail(f"Parsing failed with an exception: {e}")
+        parsed_data = data_parser.parse_data(resource_xml_data, resource_params_document_type)
+        assert parsed_data.index.max() <= expected_end_timestamp, (
+            "Parsed data contains timestamps after the expected end timestamp."
+        )
     else:
         pytest.skip("No XML data, document type, or expected end timestamp provided for this resource.")
 
@@ -93,14 +84,11 @@ def test_if_parsed_data_has_expected_index_name(
     """Test that the parsed data has the expected index name."""
     if resource_xml_data is not None and resource_params_document_type is not None and expected_index_name is not None:
         data_parser = DataParser()
-        try:
-            parsed_data = data_parser.parse_data(resource_xml_data, resource_params_document_type)
-            assert parsed_data.index.name == expected_index_name, (
-                f"Parsed data index name '{parsed_data.index.name}' does not match "
-                f"expected index name '{expected_index_name}'."
-            )
-        except Exception as e:
-            pytest.fail(f"Parsing failed with an exception: {e}")
+        parsed_data = data_parser.parse_data(resource_xml_data, resource_params_document_type)
+        assert parsed_data.index.name == expected_index_name, (
+            f"Parsed data index name '{parsed_data.index.name}' does not match "
+            f"expected index name '{expected_index_name}'."
+        )
     else:
         pytest.skip("No XML data, document type, or expected index name provided for this resource.")
 
@@ -113,13 +101,10 @@ def test_if_parsed_data_has_expected_number_of_rows(
     """Test that the parsed data has the expected number of rows."""
     if resource_xml_data is not None and resource_params_document_type is not None and expected_rows is not None:
         data_parser = DataParser()
-        try:
-            parsed_data = data_parser.parse_data(resource_xml_data, resource_params_document_type)
-            assert len(parsed_data) == expected_rows, (
-                f"Parsed data has {len(parsed_data)} rows, but expected {expected_rows} rows."
-            )
-        except Exception as e:
-            pytest.fail(f"Parsing failed with an exception: {e}")
+        parsed_data = data_parser.parse_data(resource_xml_data, resource_params_document_type)
+        assert len(parsed_data) == expected_rows, (
+            f"Parsed data has {len(parsed_data)} rows, but expected {expected_rows} rows."
+        )
     else:
         pytest.skip("No XML data, document type, or expected number of rows provided for this resource.")
 
