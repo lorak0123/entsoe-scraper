@@ -17,6 +17,19 @@ dependencies = [
     "requests",
     "pandas",
     "click",
+    "defusedxml",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-cov",
+]
+dev = [
+    "pre-commit",
+    "ruff",
+    "pytest",
+    "pytest-cov",
 ]
 
 [project.scripts]
@@ -24,3 +37,39 @@ entsoe-fetcher = "entsoe_api.scripts.entsoe_fetcher:fetch_entsoe_data"
 
 [tool.setuptools.packages.find]
 include = ["entsoe_api*", "entsoe_api.scripts*"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "I",
+    "W",
+    "N",
+    "UP",
+    "D",
+    "S",
+    "PT",
+]
+ignore = [
+    "D203",
+    "D213",
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["entsoe_api"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = [
+    "D100",
+    "D103",
+    "D104",
+    "S101",
+]

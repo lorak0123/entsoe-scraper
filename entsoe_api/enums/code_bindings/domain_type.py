@@ -1,9 +1,13 @@
+"""Module for the DomainType enum in the ENTSO-E API.
+
+This module defines the `DomainType` enum, which represents various domain types in the ENTSO-E API.
+"""
+
 from entsoe_api.enums.code_binding import CodeBinding
 
 
 class DomainType(CodeBinding):
-    """
-    Enum representing various domain types in the ENTSO-E API.
+    """Enum representing various domain types in the ENTSO-E API.
 
     Each domain type indicates a specific energy domain within a region or country,
     along with associated codes that represent relevant entities or characteristics.
@@ -11,84 +15,85 @@ class DomainType(CodeBinding):
 
     Attributes:
         TODO: Add attributes for each domain type with the corresponding code.
+
     """
 
-    AT = '10YAT-APG------L'
-    BE = '10YBE----------2'
-    BG = '10YCA-BULGARIA-R'
-    CH = '10YCH-SWISSGRIDZ'
-    CZ = '10YCZ-CEPS-----N'
-    DE_LU = '10Y1001A1001A82H'
-    DK1 = '10YDK-1--------W'
-    DK2 = '10YDK-2--------M'
-    EE = '10Y1001A1001A39I'
-    ES = '10YES-REE------0'
-    FI = '10YFI-1--------U'
-    FR = '10YFR-RTE------C'
-    GR = '10YGR-HTSO-----Y'
-    HR = '10YHR-HEP------M'
-    HU = '10YHU-MAVIR----U'
-    IE_SEM = '10Y1001A1001A59C'
-    IT_NORTH = '10Y1001A1001A73I'
-    IT_CNORTH = '10Y1001A1001A70O'
-    IT_CSOUTH = '10Y1001A1001A71M'
-    IT_SOUTH = '10Y1001A1001A788'
-    IT_Calabria = '10Y1001C--00096J'
-    IT_Sicily = '10Y1001A1001A75E'
-    IT_SACODC = '10Y1001A1001A893'
-    IT_Sardinia = '10Y1001A1001A74G'
-    IT_SACOAC = '10Y1001A1001A885'
-    LT = '10YLT-1001A0008Q'
-    LV = '10YLV-1001A00074'
-    ME = '10YCS-CG-TSO---S'
-    MK = '10YMK-MEPSO----8'
-    NL = '10YNL----------L'
-    NO1 = '10YNO-1--------2'
-    NO2 = '10YNO-2--------T'
-    NO5 = '10Y1001A1001A48H'
-    NO3 = '10YNO-3--------J'
-    NO4 = '10YNO-4--------9'
-    PL = '10YPL-AREA-----S'
-    PT = '10YPT-REN------W'
-    RO = '10YRO-TEL------P'
-    SE4 = '10Y1001A1001A47J'
-    SE3 = '10Y1001A1001A46L'
-    SE2 = '10Y1001A1001A45N'
-    SE1 = '10Y1001A1001A44P'
-    SI = '10YSI-ELES-----O'
-    SK = '10YSK-SEPS-----K'
-    GB = '10YGB----------A'
-    TR = '10YTR-TEIAS----W'
-    MT = '10Y1001A1001A93C'
-    CY = '10YCY-1001A0003J'
-    IS = 'IS'
-    AL = '10YAL-KESH-----5'
-    BA = '10YBA-JPCC-----D'
-    RS = '10YCS-SERBIATSOV'
-    UA_IPS = '10Y1001C--000182'
-    BY = '10Y1001A1001A51S'
-    RU = '10Y1001A1001A49F'
-    MD = '10Y1001A1001A990'
-    RU_KGD = '10Y1001A1001A50U'
-    GE = '10Y1001A1001B012'
-    AZ = '10Y1001A1001B05V'
-    AM = '10Y1001A1001B004'
-    XK = '10Y1001C--00100H'
-    CTA_DE_TenneT_GER = '10YDE-EON------1'
-    CTA_DE_50HzT = '10YDE-VE-------2'
-    CTA_DE_Amprion = '10YDE-RWENET---I'
-    CTA_DE_TransnetBW = '10YDE-ENBW-----N'
-    CTA_DK = '10Y1001A1001A796'
-    CTA_IE = '10YIE-1001A00010'
-    CTA_IT = '10YIT-GRTN-----B'
-    CTA_LU = '10YLU-CEGEDEL-NQ'
-    CTA_NO = '10YNO-0--------C'
-    CTA_SE = '10YSE-1--------K'
-    CTA_NIE = '10Y1001A1001A016'
-    CTA_UA_DobTPP = '10Y1001A1001A869'
-    CTY_BA = 'CTY|10YBA-JPCC-----D'
-    CTY_BG = 'CTY|10YCA-BULGARIA-R'
-    CTY_DK = '10Y1001A1001A65H'
-    CTY_DE = '10Y1001A1001A83F'
-    CTY_UA = '10Y1001C--00003F'
-    CTY_UK = '10Y1001A1001A92E'
+    AT = "10YAT-APG------L"
+    BE = "10YBE----------2"
+    BG = "10YCA-BULGARIA-R"
+    CH = "10YCH-SWISSGRIDZ"
+    CZ = "10YCZ-CEPS-----N"
+    DE_LU = "10Y1001A1001A82H"
+    DK1 = "10YDK-1--------W"
+    DK2 = "10YDK-2--------M"
+    EE = "10Y1001A1001A39I"
+    ES = "10YES-REE------0"
+    FI = "10YFI-1--------U"
+    FR = "10YFR-RTE------C"
+    GR = "10YGR-HTSO-----Y"
+    HR = "10YHR-HEP------M"
+    HU = "10YHU-MAVIR----U"
+    IE_SEM = "10Y1001A1001A59C"
+    IT_NORTH = "10Y1001A1001A73I"
+    IT_CNORTH = "10Y1001A1001A70O"
+    IT_CSOUTH = "10Y1001A1001A71M"
+    IT_SOUTH = "10Y1001A1001A788"
+    IT_Calabria = "10Y1001C--00096J"
+    IT_Sicily = "10Y1001A1001A75E"
+    IT_SACODC = "10Y1001A1001A893"
+    IT_Sardinia = "10Y1001A1001A74G"
+    IT_SACOAC = "10Y1001A1001A885"
+    LT = "10YLT-1001A0008Q"
+    LV = "10YLV-1001A00074"
+    ME = "10YCS-CG-TSO---S"
+    MK = "10YMK-MEPSO----8"
+    NL = "10YNL----------L"
+    NO1 = "10YNO-1--------2"
+    NO2 = "10YNO-2--------T"
+    NO5 = "10Y1001A1001A48H"
+    NO3 = "10YNO-3--------J"
+    NO4 = "10YNO-4--------9"
+    PL = "10YPL-AREA-----S"
+    PT = "10YPT-REN------W"
+    RO = "10YRO-TEL------P"
+    SE4 = "10Y1001A1001A47J"
+    SE3 = "10Y1001A1001A46L"
+    SE2 = "10Y1001A1001A45N"
+    SE1 = "10Y1001A1001A44P"
+    SI = "10YSI-ELES-----O"
+    SK = "10YSK-SEPS-----K"
+    GB = "10YGB----------A"
+    TR = "10YTR-TEIAS----W"
+    MT = "10Y1001A1001A93C"
+    CY = "10YCY-1001A0003J"
+    IS = "IS"
+    AL = "10YAL-KESH-----5"
+    BA = "10YBA-JPCC-----D"
+    RS = "10YCS-SERBIATSOV"
+    UA_IPS = "10Y1001C--000182"
+    BY = "10Y1001A1001A51S"
+    RU = "10Y1001A1001A49F"
+    MD = "10Y1001A1001A990"
+    RU_KGD = "10Y1001A1001A50U"
+    GE = "10Y1001A1001B012"
+    AZ = "10Y1001A1001B05V"
+    AM = "10Y1001A1001B004"
+    XK = "10Y1001C--00100H"
+    CTA_DE_TenneT_GER = "10YDE-EON------1"
+    CTA_DE_50HzT = "10YDE-VE-------2"
+    CTA_DE_Amprion = "10YDE-RWENET---I"
+    CTA_DE_TransnetBW = "10YDE-ENBW-----N"
+    CTA_DK = "10Y1001A1001A796"
+    CTA_IE = "10YIE-1001A00010"
+    CTA_IT = "10YIT-GRTN-----B"
+    CTA_LU = "10YLU-CEGEDEL-NQ"
+    CTA_NO = "10YNO-0--------C"
+    CTA_SE = "10YSE-1--------K"
+    CTA_NIE = "10Y1001A1001A016"
+    CTA_UA_DobTPP = "10Y1001A1001A869"
+    CTY_BA = "CTY|10YBA-JPCC-----D"
+    CTY_BG = "CTY|10YCA-BULGARIA-R"
+    CTY_DK = "10Y1001A1001A65H"
+    CTY_DE = "10Y1001A1001A83F"
+    CTY_UA = "10Y1001C--00003F"
+    CTY_UK = "10Y1001A1001A92E"
