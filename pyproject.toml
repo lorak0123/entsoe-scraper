@@ -5,6 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "entsoe_api"
 version = "1.1.0"
+requires-python = ">=3.8"
 description = "A project that uses the ENTSO-E API to fetch and save data."
 readme = "README.md"
 license = { text = "MIT" }
@@ -24,12 +25,16 @@ dependencies = [
 test = [
     "pytest",
     "pytest-cov",
+    "pytest-json-report",
+    "genbadge[all]",
 ]
 dev = [
     "pre-commit",
     "ruff",
     "pytest",
     "pytest-cov",
+    "pytest-json-report",
+    "genbadge[all]",
 ]
 
 [project.scripts]
@@ -73,3 +78,20 @@ indent-style = "space"
     "D104",
     "S101",
 ]
+
+[tool.pytest.ini_options]
+addopts = """
+    --cov=entsoe_api
+    --cov-report=xml:.reports/coverage.xml
+    --cov-report=html:.reports/coverage_html
+    --cov-report=term
+    --junitxml=.reports/junit.xml
+"""
+
+testpaths = ["tests"]
+
+[tool.coverage.run]
+source = ["."]
+omit = ["tests/*", "**/__init__.py"]
+branch = true
+relative_files = true

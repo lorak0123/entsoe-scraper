@@ -1,3 +1,13 @@
+![Tests](docs/badges/test-badge.svg)
+![Coverage](docs/badges/coverage-badge.svg)
+![License](https://img.shields.io/github/license/lorak0123/entsoe-scraper)
+![Python](https://img.shields.io/badge/python-3.8%2B-blue)
+![Last Commit](https://img.shields.io/github/last-commit/lorak0123/entsoe-scraper)
+![Stars](https://img.shields.io/github/stars/lorak0123/entsoe-scraper?style=flat)
+![Contributors](https://img.shields.io/github/contributors/lorak0123/entsoe-scraper)
+![Issues](https://img.shields.io/github/issues/lorak0123/entsoe-scraper)
+![PRs](https://img.shields.io/github/issues-pr/lorak0123/entsoe-scraper)
+
 # ENTSO-E API Data Fetcher
 
 A Python package for fetching and parsing energy production data from the ENTSO-E Transparency Platform API. This tool
