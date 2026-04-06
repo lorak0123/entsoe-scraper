@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+# [Unreleased]
+
+### Added
+
+### Changed
+
+### Fixed
+- Fixed `ProductionDataParser` when single `TimeSeries` has more than one `Period` element, ensuring correct handling of multiple periods in the XML response.
+
+### Removed
+
 ## [1.2.0] - 2026-04-06
 
 ### Added
