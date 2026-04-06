@@ -1,0 +1,802 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Publication_MarketDocument xmlns="urn:iec62325.351:tc57wg16:451-3:publicationdocument:7:0">
+
+    <mRID>59a401f1ff2049ca841b55865b0e19dc</mRID>
+
+    <revisionNumber>1</revisionNumber>
+
+    <type>A11</type>
+
+    <sender_MarketParticipant.mRID codingScheme="A01">10X1001A1001A450</sender_MarketParticipant.mRID>
+
+    <sender_MarketParticipant.marketRole.type>A32</sender_MarketParticipant.marketRole.type>
+
+    <receiver_MarketParticipant.mRID codingScheme="A01">10X1001A1001A450</receiver_MarketParticipant.mRID>
+
+    <receiver_MarketParticipant.marketRole.type>A33</receiver_MarketParticipant.marketRole.type>
+
+    <createdDateTime>2026-04-05T23:00:21Z</createdDateTime>
+
+    <period.timeInterval>
+
+        <start>2024-08-18T22:00Z</start>
+
+        <end>2024-08-19T22:00Z</end>
+
+    </period.timeInterval>
+
+    <TimeSeries>
+
+        <mRID>1</mRID>
+
+        <businessType>A66</businessType>
+
+        <in_Domain.mRID codingScheme="A01">10YES-REE------0</in_Domain.mRID>
+
+        <out_Domain.mRID codingScheme="A01">10YFR-RTE------C</out_Domain.mRID>
+
+        <quantity_Measure_Unit.name>MAW</quantity_Measure_Unit.name>
+
+        <curveType>A03</curveType>
+
+        <Period>
+
+            <timeInterval>
+
+                <start>2024-08-18T22:00Z</start>
+
+                <end>2024-08-19T22:00Z</end>
+
+            </timeInterval>
+
+            <resolution>PT15M</resolution>
+
+            <Point>
+
+                <position>1</position>
+
+                <quantity>1049.12</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>2</position>
+
+                <quantity>1661.12</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>3</position>
+
+                <quantity>1870.96</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>4</position>
+
+                <quantity>1998.44</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>5</position>
+
+                <quantity>1923.84</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>6</position>
+
+                <quantity>1872.72</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>7</position>
+
+                <quantity>1856.2</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>8</position>
+
+                <quantity>1776.72</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>9</position>
+
+                <quantity>1864.76</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>10</position>
+
+                <quantity>1690.2</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>11</position>
+
+                <quantity>1492.44</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>12</position>
+
+                <quantity>1532.8</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>13</position>
+
+                <quantity>1659.28</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>14</position>
+
+                <quantity>1327.04</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>15</position>
+
+                <quantity>1319.96</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>16</position>
+
+                <quantity>1422.8</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>17</position>
+
+                <quantity>1461.08</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>18</position>
+
+                <quantity>1621.72</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>19</position>
+
+                <quantity>1596.4</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>20</position>
+
+                <quantity>1621.88</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>21</position>
+
+                <quantity>1627.96</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>22</position>
+
+                <quantity>1486</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>23</position>
+
+                <quantity>1491.6</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>24</position>
+
+                <quantity>1481.08</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>25</position>
+
+                <quantity>1415.96</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>26</position>
+
+                <quantity>2364.76</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>27</position>
+
+                <quantity>2498.52</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>28</position>
+
+                <quantity>2506.88</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>29</position>
+
+                <quantity>2371</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>30</position>
+
+                <quantity>2012.48</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>31</position>
+
+                <quantity>2080.16</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>32</position>
+
+                <quantity>1850.24</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>33</position>
+
+                <quantity>1775.44</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>34</position>
+
+                <quantity>1772.04</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>35</position>
+
+                <quantity>1527.68</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>36</position>
+
+                <quantity>1631.84</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>37</position>
+
+                <quantity>1726.4</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>38</position>
+
+                <quantity>1681.72</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>39</position>
+
+                <quantity>1187.56</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>40</position>
+
+                <quantity>962.8</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>41</position>
+
+                <quantity>1166.44</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>42</position>
+
+                <quantity>578.32</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>43</position>
+
+                <quantity>578.28</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>44</position>
+
+                <quantity>663.08</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>45</position>
+
+                <quantity>878.88</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>46</position>
+
+                <quantity>789.64</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>47</position>
+
+                <quantity>1163.52</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>48</position>
+
+                <quantity>1143.24</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>49</position>
+
+                <quantity>1347.96</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>50</position>
+
+                <quantity>1732.52</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>51</position>
+
+                <quantity>1973.64</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>52</position>
+
+                <quantity>2006.04</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>53</position>
+
+                <quantity>2362.84</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>54</position>
+
+                <quantity>2313.6</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>55</position>
+
+                <quantity>2618.64</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>56</position>
+
+                <quantity>2623.4</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>57</position>
+
+                <quantity>2546.44</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>58</position>
+
+                <quantity>2412.8</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>59</position>
+
+                <quantity>2475.36</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>60</position>
+
+                <quantity>2516.4</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>61</position>
+
+                <quantity>2558.24</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>62</position>
+
+                <quantity>2540.48</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>63</position>
+
+                <quantity>2345.64</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>64</position>
+
+                <quantity>2052.12</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>65</position>
+
+                <quantity>2167.92</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>66</position>
+
+                <quantity>2246.16</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>67</position>
+
+                <quantity>2069</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>68</position>
+
+                <quantity>1953.12</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>69</position>
+
+                <quantity>1939.76</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>70</position>
+
+                <quantity>1051.44</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>71</position>
+
+                <quantity>978.28</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>72</position>
+
+                <quantity>902.68</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>73</position>
+
+                <quantity>766</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>74</position>
+
+                <quantity>0</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>78</position>
+
+                <quantity>706.52</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>79</position>
+
+                <quantity>1500.72</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>80</position>
+
+                <quantity>1677.72</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>81</position>
+
+                <quantity>1284.04</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>82</position>
+
+                <quantity>2410.4</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>83</position>
+
+                <quantity>2931.32</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>84</position>
+
+                <quantity>2797.88</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>85</position>
+
+                <quantity>2812.52</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>86</position>
+
+                <quantity>2772.72</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>87</position>
+
+                <quantity>2889.28</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>88</position>
+
+                <quantity>2829.84</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>89</position>
+
+                <quantity>2880.2</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>90</position>
+
+                <quantity>2912.48</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>91</position>
+
+                <quantity>2822.44</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>92</position>
+
+                <quantity>2913.84</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>93</position>
+
+                <quantity>2901.32</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>94</position>
+
+                <quantity>2563.32</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>95</position>
+
+                <quantity>2591.2</quantity>
+
+            </Point>
+
+            <Point>
+
+                <position>96</position>
+
+                <quantity>2376.8</quantity>
+
+            </Point>
+
+        </Period>
+
+    </TimeSeries>
+
+</Publication_MarketDocument>

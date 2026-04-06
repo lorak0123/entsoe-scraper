@@ -4,7 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "entsoe_api"
-version = "1.1.0"
+version = "1.2.0"
+requires-python = ">=3.8"
 description = "A project that uses the ENTSO-E API to fetch and save data."
 readme = "README.md"
 license = { text = "MIT" }
@@ -17,6 +18,23 @@ dependencies = [
     "requests",
     "pandas",
     "click",
+    "defusedxml",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "pytest-cov",
+    "pytest-json-report",
+    "genbadge[all]",
+]
+dev = [
+    "pre-commit",
+    "ruff",
+    "pytest",
+    "pytest-cov",
+    "pytest-json-report",
+    "genbadge[all]",
 ]
 
 [project.scripts]
@@ -24,3 +42,56 @@ entsoe-fetcher = "entsoe_api.scripts.entsoe_fetcher:fetch_entsoe_data"
 
 [tool.setuptools.packages.find]
 include = ["entsoe_api*", "entsoe_api.scripts*"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = [
+    "E",
+    "F",
+    "I",
+    "W",
+    "N",
+    "UP",
+    "D",
+    "S",
+    "PT",
+]
+ignore = [
+    "D203",
+    "D213",
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["entsoe_api"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = [
+    "D100",
+    "D103",
+    "D104",
+    "S101",
+]
+
+[tool.pytest.ini_options]
+addopts = """
+    --cov
+    --cov-report=xml:.reports/coverage.xml
+    --cov-report=html:.reports/coverage_html
+    --cov-report=term
+    --junitxml=.reports/junit.xml
+"""
+
+testpaths = ["tests"]
+
+[tool.coverage.run]
+source = ["."]
+omit = ["tests/*", "**/__init__.py"]
+branch = true
+relative_files = true

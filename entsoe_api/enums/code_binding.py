@@ -1,12 +1,16 @@
+"""CodeBinding enum module for the ENTSO-E API.
+
+Module containing the CodeBinding enumeration, which provides a standardized way to
+bind codes to their corresponding EnumType.
+"""
+
 from enum import StrEnum
 
 from entsoe_api.enums.exceptions import CodeBindingError
 
 
 class CodeBinding(StrEnum):
-    """
-    Interface for the CodeBinding enumeration
-    """
+    """Interface for the CodeBinding enumeration."""
 
     @classmethod
     def from_name(cls, name):
@@ -26,4 +30,5 @@ class CodeBinding(StrEnum):
             return cls[name]
         except KeyError:
             raise CodeBindingError(
-                f"Unknown code '{name}' for {cls.__name__}. Available codes are: {', '.join(cls.__members__)}")
+                f"Unknown code '{name}' for {cls.__name__}. Available codes are: {', '.join(cls.__members__)}"
+            )
