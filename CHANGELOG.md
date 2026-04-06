@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 
 ---
 
-## [Unreleased]
+## [1.2.0] - 2026-04-06
 
 ### Added
 - Added `ENERGY_STORAGE` type with code `B25` to `PsrType` enum.
@@ -18,9 +18,6 @@ All notable changes to this project will be documented in this file.
 - Refactored `DomainType` enum to simplify domain codes for BZN, CTA, and CTY; added all remaining domain codes — `DomainType` now covers all possible ENTSO-E area codes.
 - Improved docstrings across the codebase for better clarity and consistency.
 
-### Removed
-
-### Fixed
 
 ## [1.1.0] - 2025-11-17
 
