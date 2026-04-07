@@ -3,6 +3,7 @@
 from datetime import datetime
 
 import click
+import pandas as pd
 
 from entsoe_api.api import EntsoeAPI
 from entsoe_api.enums import DocumentType, DomainType, ProcessType, PsrType
@@ -15,42 +16,50 @@ from entsoe_api.utils import LOGGER
 @click.option("--end-date", "-e", required=True, help="End date in format YYYY-MM-DD", type=str)
 @click.option(
     "--document-type",
-    "-d",
+    "-dt",
     required=True,
     type=click.Choice([e.name for e in DocumentType]),
     help="DocumentType for the request.",
 )
 @click.option(
     "--process-type",
-    "-p",
+    "-pt",
     required=True,
     type=click.Choice([e.name for e in ProcessType]),
     help="ProcessType for the request.",
 )
 @click.option(
     "--in-domain",
-    "-i",
+    "-id",
     required=True,
     type=click.Choice([e.name for e in DomainType]),
     help="InDomainType for the request.",
 )
 @click.option(
     "--out-domain",
-    "-o",
+    "-od",
     default=None,
     type=click.Choice([e.name for e in DomainType]),
     help="OutDomainType for the request.",
 )
 @click.option(
     "--psr-type",
-    "-r",
+    "-rt",
     default="ALL",
     type=click.Choice([e.name for e in PsrType]),
     help="PsrType for the request. Defaults to ALL.",
 )
-@click.option("--output", "-f", help="Output file path for the CSV file.", type=str)
+@click.option("--output", "-o", help="Output file path for the CSV file.", type=str)
 @click.option("--api-key", "-k", required=True, help="Your ENTSO-E API key.")
-@click.option("--chunk_size", "-c", default=30, help="Chunk size for fetching data.", type=int)
+@click.option("--chunk_size", "-cs", default=30, help="Chunk size for fetching data.", type=int)
+@click.option(
+    "--format",
+    "-f",
+    default="csv",
+    help="Output format (csv or xlsx). Defaults to csv.",
+    type=click.Choice(["csv", "xlsx"]),
+)
+@click.option("--add_meta", "-m", is_flag=True, help="Whether to include metadata in the output file.")
 def fetch_entsoe_data(
     start_date: str,
     end_date: str,
@@ -62,6 +71,8 @@ def fetch_entsoe_data(
     output: str,
     api_key: str,
     chunk_size: int,
+    format: str,
+    add_meta: bool,
 ):
     """Fetch data from the ENTSO-E Transparency API and save it to a CSV file."""
     try:
@@ -70,7 +81,11 @@ def fetch_entsoe_data(
         end_date_dt = datetime.strptime(end_date, "%Y-%m-%d")
 
         # Initialize the API client
-        entsoe_api = EntsoeAPI(api_key, max_period_days=chunk_size)
+        entsoe_api = EntsoeAPI(
+            api_key,
+            max_period_days=chunk_size,
+            return_format="dataframe" if format == "csv" else "dataframe_set",
+        )
 
         LOGGER.info(f"Fetching data from {start_date} to {end_date}...")
 
@@ -83,15 +98,20 @@ def fetch_entsoe_data(
             in_domain=DomainType[in_domain],
             out_domain=DomainType[out_domain] if out_domain else None,
             psr_type=PsrType[psr_type] if psr_type != "ALL" else PsrType.ALL,
+            include_metadata=add_meta,
         )
 
         if not output:
-            output = f"{document_type}-{process_type}-{in_domain}-{out_domain}-{psr_type}-{start_date}-{end_date}.csv"
+            output = f"{document_type}-{process_type}-{in_domain}-{out_domain}-{psr_type}-{start_date}-{end_date}"
 
         LOGGER.info(f"Saving data to {output}...")
 
-        # Save the DataFrame to CSV
-        df.to_csv(output, index=True)
+        if format == "xlsx":
+            with pd.ExcelWriter(f"{output}.xlsx") as writer:
+                for name, df in df.items():
+                    df.to_excel(writer, sheet_name=name)
+        else:
+            df.to_csv(f"{output}.csv", index=True)
 
         LOGGER.info(f"Data successfully saved to {output}")
 

@@ -8,11 +8,17 @@ All notable changes to this project will be documented in this file.
 # [Unreleased]
 
 ### Added
+- More options for saving and exporting data in the CLI tool, including support for csv and Excel formats.
+- Additional metadata fields in the output files, such as units or data period information.
+- More testcases for parsers, including some specific edge cases and error handling scenarios.
+- Add support for multisequence price data in `PriceDataParser`, allowing it to handle multiple sequences of price data within a single XML response.
 
 ### Changed
+- Parsers base logic refactored to use a more flexible and extensible structure, allowing for easier addition of new document types and data formats in the future.
 
 ### Fixed
 - Fixed `ProductionDataParser` when single `TimeSeries` has more than one `Period` element, ensuring correct handling of multiple periods in the XML response.
+- Fixed `PriceDataParser` to correctly calculate the end timestamp for multi sequence price data.
 
 ### Removed
 

@@ -19,6 +19,7 @@ dependencies = [
     "pandas",
     "click",
     "defusedxml",
+    "openpyxl",
 ]
 
 [project.optional-dependencies]
