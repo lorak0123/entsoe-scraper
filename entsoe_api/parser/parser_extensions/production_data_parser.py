@@ -13,7 +13,7 @@ class ProductionDataParser(ParserInterface):
         if time_series_element.find(".//ns:outBiddingZone_Domain.mRID", namespace) is not None:
             return PsrType(time_series_element.find(".//ns:psrType", namespace).text).name + "_CONSUMPTION"
         else:
-            return PsrType(time_series_element.find(".//ns:psrType", namespace).text).name + "_PRODUCTION"
+            return PsrType(time_series_element.find(".//ns:psrType", namespace).text).name + "_GENERATION"
 
     @classmethod
     def _parse_metadata(cls, time_series_element, namespace) -> dict:
