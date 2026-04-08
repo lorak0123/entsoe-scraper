@@ -38,6 +38,7 @@ class EntsoeAPI:
         api_key: str,
         max_period_days: int = 30,
         return_format: Literal["raw", "dataframe", "dataframe_set"] = "raw",
+        timeout: int = 600,
     ):
         """Initialize the EntsoeAPI with the given API key.
 
@@ -50,12 +51,14 @@ class EntsoeAPI:
                 - "dataframe": Return the data as a single pandas DataFrame.
                 - "dataframe_set": Return the data as a dictionary of pandas DataFrames, where each key corresponds
                     to a different time series. Defaults to "raw".
+            timeout (int, optional): The timeout for API requests in seconds. Defaults to 600.
 
 
         """
         self.api_key = api_key
         self.max_period_days = max_period_days
         self.return_format = return_format
+        self.timeout = timeout
 
     def _get_data(
         self,
@@ -101,7 +104,7 @@ class EntsoeAPI:
         if psr_type != "ALL":
             params["psrType"] = psr_type.value
 
-        response = requests.get(self.BASE_URL, params=params, timeout=60)
+        response = requests.get(self.BASE_URL, params=params, timeout=self.timeout)
 
         if response.status_code == 200:
             return response.content
