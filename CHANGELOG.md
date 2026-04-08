@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file.
 - Additional metadata fields in the output files, such as units or data period information.
 - More testcases for parsers, including some specific edge cases and error handling scenarios.
 - Add support for multisequence price data in `PriceDataParser`, allowing it to handle multiple sequences of price data within a single XML response.
+- Add support for parametrizing timeout time in `EntsoeAPI` requests, allowing users to specify a custom timeout duration for API calls.
 
 ### Changed
 - Parsers base logic refactored to use a more flexible and extensible structure, allowing for easier addition of new document types and data formats in the future.
