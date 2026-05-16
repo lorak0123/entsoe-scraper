@@ -147,4 +147,14 @@ RESOURCES_CONFIG = [
             in_domain=DomainType.PL,
         ),
     },
+    {
+        "path": "xml_resources/installed_generation_per_type_pl_2016-04-2017-04.xml",
+        "params": dict(
+            start_date=datetime(2016, 4, 4),
+            end_date=datetime(2017, 4, 4),
+            document_type=DocumentType.INSTALLED_GENERATION_PER_TYPE,
+            process_type=ProcessType.YEAR_AHEAD,
+            in_domain=DomainType.PL,
+        ),
+    },
 ]

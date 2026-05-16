@@ -11,6 +11,7 @@ import pandas as pd
 from entsoe_api.enums import DocumentType
 from entsoe_api.parser.exceptions import ParserError
 from entsoe_api.parser.parser_extensions.aggregated_energy_data_data_parser import AggregatedEnergyDataDataParser
+from entsoe_api.parser.parser_extensions.installed_capacity_data_parser import InstalledCapacityDataParser
 from entsoe_api.parser.parser_extensions.price_data_parser import PriceDataParser
 from entsoe_api.parser.parser_extensions.production_data_parser import ProductionDataParser
 from entsoe_api.parser.parser_extensions.total_load_data_parser import TotalLoad
@@ -26,6 +27,7 @@ class DataParser:
         DocumentType.AGGREGATED_ENERGY_DATA_REPORT: AggregatedEnergyDataDataParser,
         DocumentType.WIND_AND_SOLAR_FORECAST: ProductionDataParser,
         DocumentType.SYSTEM_TOTAL_LOAD: TotalLoad,
+        DocumentType.INSTALLED_GENERATION_PER_TYPE: InstalledCapacityDataParser,
     }
 
     @classmethod

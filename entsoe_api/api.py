@@ -193,17 +193,16 @@ class EntsoeAPI:
                 res = DataParser.parse_to_raw_data(xml_data, document_type)
             elif self.return_format == "dataframe":
                 res = DataParser.parse_to_dataframe(xml_data, document_type, include_metadata=include_metadata)
+                res = self._reindex_and_fill_dataframe_gaps(res)
             elif self.return_format == "dataframe_set":
                 res = DataParser.parse_data_to_dataframe_set(xml_data, document_type, include_metadata=include_metadata)
             else:
                 raise ValueError(f"Invalid return format: {self.return_format}")
 
-        return self._process_result(res)
+        return res
 
-    def _process_result(
-        self, res: pd.DataFrame | dict[str, pd.DataFrame] | list[TimeSeriesData]
-    ) -> pd.DataFrame | dict[str, pd.DataFrame] | list[TimeSeriesData]:
-        if self.return_format == "dataframe":
+    def _reindex_and_fill_dataframe_gaps(self, res: pd.DataFrame) -> pd.DataFrame:
+        if len(res) > 2:  # Only reindex if there are more than 2 rows in the DataFrame
             smallest_resolution = res.index.diff().min()
             if smallest_resolution == timedelta(0):
                 LOGGER.warning(
@@ -216,6 +215,8 @@ class EntsoeAPI:
 
             idx = pd.date_range(start=res.index.min(), end=res.index.max(), freq=smallest_resolution)
             res = res.reindex(idx, method="ffill").rename_axis(index="timestamp")
+        else:
+            res = res.ffill().rename_axis(index="timestamp")
 
         return res
 
