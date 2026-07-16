@@ -107,15 +107,9 @@ def expected_columns(resource_config) -> list[str] | None:
 
 
 @pytest.fixture
-def expected_rows(resource_config) -> int | None:
+def expected_rows(resource_config) -> dict[str, int] | None:
     """Fixture to provide the expected number of rows for the resource."""
     return resource_config.get("expected_rows")
-
-
-@pytest.fixture
-def expected_index_name(resource_config) -> str | None:
-    """Fixture to provide the expected index name for the resource."""
-    return resource_config.get("expected_index_name")
 
 
 @pytest.fixture

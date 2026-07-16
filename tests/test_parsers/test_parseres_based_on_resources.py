@@ -13,8 +13,8 @@ def test_if_parsers_parse_resources_with_no_errors(
 ):
     """Test that the parsers can parse the XML resources without errors."""
     if resource_xml_data is not None and resource_params_document_type is not None and expected_error is None:
-        data_parser = DataParser()
-        parsed_data = data_parser.parse_data(resource_xml_data, resource_params_document_type)
+        parsed_data = DataParser.PARSERS[resource_params_document_type].parse(resource_xml_data)
+
         assert parsed_data is not None, "Parsed data should not be None."
     else:
         pytest.skip("No XML data or document type provided for this resource, or expected errors are defined.")
@@ -31,11 +31,13 @@ def test_if_parsed_data_does_not_exits_start_timestamp(
         and resource_params_document_type is not None
         and expected_start_timestamp is not None
     ):
-        data_parser = DataParser()
-        parsed_data = data_parser.parse_data(resource_xml_data, resource_params_document_type)
-        assert parsed_data.index.min() >= expected_start_timestamp, (
-            "Parsed data contains timestamps before the expected start timestamp."
-        )
+        parsed_data = DataParser.PARSERS[resource_params_document_type].parse(resource_xml_data)
+
+        for time_series in parsed_data:
+            for timestamp, _ in time_series.data:
+                assert timestamp >= expected_start_timestamp, (
+                    "Parsed data contains timestamps before the expected start timestamp."
+                )
     else:
         pytest.skip("No XML data, document type, or expected start timestamp provided for this resource.")
 
@@ -51,11 +53,13 @@ def test_if_parsed_data_does_not_exits_end_timestamp(
         and resource_params_document_type is not None
         and expected_end_timestamp is not None
     ):
-        data_parser = DataParser()
-        parsed_data = data_parser.parse_data(resource_xml_data, resource_params_document_type)
-        assert parsed_data.index.max() <= expected_end_timestamp, (
-            "Parsed data contains timestamps after the expected end timestamp."
-        )
+        parsed_data = DataParser.PARSERS[resource_params_document_type].parse(resource_xml_data)
+
+        for time_series in parsed_data:
+            for timestamp, _ in time_series.data:
+                assert timestamp <= expected_end_timestamp, (
+                    "Parsed data contains timestamps after the expected end timestamp."
+                )
     else:
         pytest.skip("No XML data, document type, or expected end timestamp provided for this resource.")
 
@@ -67,30 +71,30 @@ def test_if_parsed_data_contains_expected_columns(
 ):
     """Test that the parsed data contains the expected columns."""
     if resource_xml_data is not None and resource_params_document_type is not None and expected_columns is not None:
-        data_parser = DataParser()
-        parsed_data = data_parser.parse_data(resource_xml_data, resource_params_document_type)
-        assert all(column in parsed_data.columns for column in expected_columns), (
-            "Parsed data does not contain all expected columns."
-        )
+        parsed_data = DataParser.PARSERS[resource_params_document_type].parse(resource_xml_data)
+        for time_series in parsed_data:
+            assert time_series.name in expected_columns, (
+                f"Parsed data contains time series '{time_series.name}' "
+                f"which is not in the expected columns {expected_columns}."
+            )
     else:
         pytest.skip("No XML data, document type, or expected columns provided for this resource.")
 
 
-def test_if_parsed_data_has_expected_index_name(
+def test_if_parsed_data_has_proper_types(
     resource_xml_data: bytes | None,
     resource_params_document_type: DocumentType | None,
-    expected_index_name: str | None,
 ):
-    """Test that the parsed data has the expected index name."""
-    if resource_xml_data is not None and resource_params_document_type is not None and expected_index_name is not None:
-        data_parser = DataParser()
-        parsed_data = data_parser.parse_data(resource_xml_data, resource_params_document_type)
-        assert parsed_data.index.name == expected_index_name, (
-            f"Parsed data index name '{parsed_data.index.name}' does not match "
-            f"expected index name '{expected_index_name}'."
-        )
+    """Test that the parsed data has the proper types."""
+    if resource_xml_data is not None and resource_params_document_type is not None:
+        parsed_data = DataParser.PARSERS[resource_params_document_type].parse(resource_xml_data)
+        for time_series in parsed_data:
+            assert isinstance(time_series.name, str), "Time series name should be a string."
+            for timestamp, value in time_series.data:
+                assert isinstance(timestamp, datetime), "Timestamp should be a datetime object."
+                assert isinstance(value, (int, float)), "Value should be an integer or float."
     else:
-        pytest.skip("No XML data, document type, or expected index name provided for this resource.")
+        pytest.skip("No XML data or document type provided for this resource.")
 
 
 def test_if_parsed_data_has_expected_number_of_rows(
@@ -100,11 +104,14 @@ def test_if_parsed_data_has_expected_number_of_rows(
 ):
     """Test that the parsed data has the expected number of rows."""
     if resource_xml_data is not None and resource_params_document_type is not None and expected_rows is not None:
-        data_parser = DataParser()
-        parsed_data = data_parser.parse_data(resource_xml_data, resource_params_document_type)
-        assert len(parsed_data) == expected_rows, (
-            f"Parsed data has {len(parsed_data)} rows, but expected {expected_rows} rows."
-        )
+        parsed_data = DataParser.PARSERS[resource_params_document_type].parse(resource_xml_data)
+        name_to_time_series = {time_series.name: time_series for time_series in parsed_data}
+        for column_name, expected_row_count in expected_rows.items():
+            assert column_name in name_to_time_series, f"Expected column '{column_name}' not found in parsed data."
+            actual_row_count = len(name_to_time_series[column_name].data)
+            assert actual_row_count == expected_row_count, (
+                f"Expected {expected_row_count} rows for column '{column_name}', but got {actual_row_count}."
+            )
     else:
         pytest.skip("No XML data, document type, or expected number of rows provided for this resource.")
 

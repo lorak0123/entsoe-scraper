@@ -48,6 +48,28 @@ pip install .
 
 ## Usage
 
+---
+<span style="color: red;">Warning!</span> 
+
+It is not recomended to use console scripts as they are not tested and may cause issues. Instead, run library code directly:
+
+```python
+from entsoe_api.api import EntsoeAPI
+from entsoe_api.enums import DocumentType, ProcessType, DomainType
+from datetime import datetime
+
+api = EntsoeAPI(api_key="your_api_key_here", max_period_days=100)
+data = api.fetch_data(
+    start_date=datetime(2026, 4, 4, 0),
+    end_date=datetime(2026, 4, 5, 0),
+    document_type=DocumentType.ACTUAL_GENERATION_PER_TYPE,
+    process_type=ProcessType.REALISED,
+    in_domain=DomainType.PL,
+)
+```
+
+---
+
 ### Command Line Interface (CLI)
 
 The `entsoe_fetcher` script allows you to fetch data and save it to a file.

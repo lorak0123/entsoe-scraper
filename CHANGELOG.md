@@ -5,6 +5,36 @@ All notable changes to this project will be documented in this file.
 
 ---
 
+# [Unreleased]
+
+### Added
+
+### Changed
+
+### Fixed
+
+### Removed
+
+## [1.3.0] - 2026-07-16
+
+### Added
+- Add option to scrape installed capacity data from ENTSO-E Transparency Platform, including support for fetching installed generation per type.
+- More options for saving and exporting data in the CLI tool, including support for csv and Excel formats.
+- Additional metadata fields in the output files, such as units or data period information.
+- More testcases for parsers, including some specific edge cases and error handling scenarios.
+- Add support for multisequence price data in `PriceDataParser`, allowing it to handle multiple sequences of price data within a single XML response.
+- Add support for parametrizing timeout time in `EntsoeAPI` requests, allowing users to specify a custom timeout duration for API calls.
+- Add support for installed generation per type endpoint and parser, allowing users to fetch and parse data related to installed generation capacity by type.
+
+### Changed
+- Parsers base logic refactored to use a more flexible and extensible structure, allowing for easier addition of new document types and data formats in the future.
+
+### Fixed
+- Fixed `ProductionDataParser` when single `TimeSeries` has more than one `Period` element, ensuring correct handling of multiple periods in the XML response.
+- Fixed `PriceDataParser` to correctly calculate the end timestamp for multi sequence price data.
+
+### Removed
+
 ## [1.2.0] - 2026-04-06
 
 ### Added
