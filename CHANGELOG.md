@@ -8,6 +8,16 @@ All notable changes to this project will be documented in this file.
 # [Unreleased]
 
 ### Added
+
+### Changed
+
+### Fixed
+
+### Removed
+
+## [1.3.0] - 2026-07-16
+
+### Added
 - Add option to scrape installed capacity data from ENTSO-E Transparency Platform, including support for fetching installed generation per type.
 - More options for saving and exporting data in the CLI tool, including support for csv and Excel formats.
 - Additional metadata fields in the output files, such as units or data period information.
