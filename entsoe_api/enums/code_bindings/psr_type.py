@@ -1,3 +1,11 @@
+"""Module for the `PsrType` enum in the ENTSO-E API client.
+
+Module that defines the `PsrType` enum, which represents various types of production and load sources in the energy
+sector. Each type is associated with a specific code that can be used for reporting and management purposes
+within the context of energy production and consumption. The `PsrType` enum inherits from the `CodeBinding`
+class, which provides a base for defining code-based enumerations in the ENTSO-E API client.
+"""
+
 from entsoe_api.enums.code_binding import CodeBinding
 
 
@@ -36,34 +44,37 @@ class PsrType(CodeBinding):
         DC_LINK (str): DC link type (code 'B22').
         SUBSTATION (str): Substation type (code 'B23').
         TRANSFORMER (str): Transformer type (code 'B24').
+        ENERGY_STORAGE (str): Energy storage type (code 'B25').
         ALL (str): All types of energy (code 'ALL').
+
     """
 
-    MIXED = 'A03'
-    GENERATION = 'A04'
-    LOAD = 'A05'
-    BIOMASS = 'B01'
-    FOSSIL_BROWN_COAL_LIGNITE = 'B02'
-    FOSSIL_COAL_DERIVED_GAS = 'B03'
-    FOSSIL_GAS = 'B04'
-    FOSSIL_HARD_COAL = 'B05'
-    FOSSIL_OIL = 'B06'
-    FOSSIL_OIL_SHALE = 'B07'
-    FOSSIL_PEAT = 'B08'
-    GEOTHERMAL = 'B09'
-    HYDRO_PUMPED_STORAGE = 'B10'
-    HYDRO_RUN_OF_RIVER_POUNDAGE = 'B11'
-    HYDRO_WATER_RESERVOIR = 'B12'
-    MARINE = 'B13'
-    NUCLEAR = 'B14'
-    OTHER_RENEWABLE = 'B15'
-    SOLAR = 'B16'
-    WASTE = 'B17'
-    WIND_OFFSHORE = 'B18'
-    WIND_ONSHORE = 'B19'
-    OTHER = 'B20'
-    AC_LINK = 'B21'
-    DC_LINK = 'B22'
-    SUBSTATION = 'B23'
-    TRANSFORMER = 'B24'
-    ALL = 'ALL'
+    MIXED = "A03"
+    GENERATION = "A04"
+    LOAD = "A05"
+    BIOMASS = "B01"
+    FOSSIL_BROWN_COAL_LIGNITE = "B02"
+    FOSSIL_COAL_DERIVED_GAS = "B03"
+    FOSSIL_GAS = "B04"
+    FOSSIL_HARD_COAL = "B05"
+    FOSSIL_OIL = "B06"
+    FOSSIL_OIL_SHALE = "B07"
+    FOSSIL_PEAT = "B08"
+    GEOTHERMAL = "B09"
+    HYDRO_PUMPED_STORAGE = "B10"
+    HYDRO_RUN_OF_RIVER_POUNDAGE = "B11"
+    HYDRO_WATER_RESERVOIR = "B12"
+    MARINE = "B13"
+    NUCLEAR = "B14"
+    OTHER_RENEWABLE = "B15"
+    SOLAR = "B16"
+    WASTE = "B17"
+    WIND_OFFSHORE = "B18"
+    WIND_ONSHORE = "B19"
+    OTHER = "B20"
+    AC_LINK = "B21"
+    DC_LINK = "B22"
+    SUBSTATION = "B23"
+    TRANSFORMER = "B24"
+    ENERGY_STORAGE = "B25"
+    ALL = "ALL"

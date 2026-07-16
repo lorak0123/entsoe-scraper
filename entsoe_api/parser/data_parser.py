@@ -1,18 +1,27 @@
+"""Module for parsing the data returned by the ENTSO-E API.
+
+The DataParser class maintains a mapping of document types to their respective parsers,
+allowing it to handle different types of data returned by the ENTSO-E API. The parse_data method takes XML data
+and a document type as input and returns the parsed data in a DataFrame format.
+If a parser for the specified document type is not defined, it raises a ParserError.
+"""
+
 import pandas as pd
 
 from entsoe_api.enums import DocumentType
+from entsoe_api.parser.exceptions import ParserError
 from entsoe_api.parser.parser_extensions.aggregated_energy_data_data_parser import AggregatedEnergyDataDataParser
 from entsoe_api.parser.parser_extensions.price_data_parser import PriceDataParser
 from entsoe_api.parser.parser_extensions.production_data_parser import ProductionDataParser
 from entsoe_api.parser.parser_extensions.total_load_data_parser import TotalLoad
 from entsoe_api.parser.parser_interface import ParserInterface
-from entsoe_api.parser.exceptions import ParserError
 
 
 class DataParser:
     """A class for parsing various types of XML data into pandas DataFrame."""
 
     def __init__(self):
+        """Initialize the DataParser with a mapping of document types to their respective parsers."""
         self.parsers: dict[DocumentType, type[ParserInterface]] = {
             DocumentType.ACTUAL_GENERATION_PER_TYPE: ProductionDataParser,
             DocumentType.PRICE_DOCUMENT: PriceDataParser,
@@ -22,8 +31,7 @@ class DataParser:
         }
 
     def parse_data(self, xml_data: bytes, document_type: DocumentType) -> pd.DataFrame:
-        """
-        Main method to parse the XML data based on document type.
+        """Parse the XML data based on document type and returns a pandas DataFrame.
 
         Args:
             xml_data (bytes): The XML data to parse.
@@ -31,6 +39,7 @@ class DataParser:
 
         Returns:
             pd.DataFrame: Parsed data in DataFrame format.
+
         """
         if document_type not in self.parsers:
             raise ParserError(f"Parser for document type '{document_type}' is not defined.")

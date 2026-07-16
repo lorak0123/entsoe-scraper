@@ -1,9 +1,10 @@
+"""Module defining the ProcessType enum for the ENTSO-E API."""
+
 from entsoe_api.enums.code_binding import CodeBinding
 
 
 class ProcessType(CodeBinding):
-    """
-    Enum representing various types of processes in the ENTSO-E API.
+    """Enum representing various types of processes in the ENTSO-E API.
 
     Each process type indicates a specific kind of operation related
     to energy management, such as scheduling or balancing reserves.
@@ -27,22 +28,24 @@ class ProcessType(CodeBinding):
         DIRECT_ACTIVATION_MFRR (str): Direct activation mFRR process (code 'A61').
         CENTRAL_SELECTION_AFRR (str): Central selection aFRR process (code 'A67').
         LOCAL_SELECTION_AFRR (str): Local selection aFRR process (code 'A68').
+
     """
-    DAY_AHEAD = 'A01'
-    INTRA_DAY_INCREMENTAL = 'A02'
-    REALISED = 'A16'
-    INTRADAY_TOTAL = 'A18'
-    WEEK_AHEAD = 'A31'
-    MONTH_AHEAD = 'A32'
-    YEAR_AHEAD = 'A33'
-    SYNCHRONISATION_PROCESS = 'A39'
-    INTRADAY_PROCESS = 'A40'
-    REPLACEMENT_RESERVE = 'A46'
-    MANUAL_FREQUENCY_RESTORATION_RESERVE = 'A47'
-    AUTOMATIC_FREQUENCY_RESTORATION_RESERVE = 'A51'
-    FREQUENCY_CONTAINMENT_RESERVE = 'A52'
-    FREQUENCY_RESTORATION_RESERVE = 'A56'
-    SCHEDULED_ACTIVATION_MFRR = 'A60'
-    DIRECT_ACTIVATION_MFRR = 'A61'
-    CENTRAL_SELECTION_AFRR = 'A67'
-    LOCAL_SELECTION_AFRR = 'A68'
+
+    DAY_AHEAD = "A01"
+    INTRA_DAY_INCREMENTAL = "A02"
+    REALISED = "A16"
+    INTRADAY_TOTAL = "A18"
+    WEEK_AHEAD = "A31"
+    MONTH_AHEAD = "A32"
+    YEAR_AHEAD = "A33"
+    SYNCHRONISATION_PROCESS = "A39"
+    INTRADAY_PROCESS = "A40"
+    REPLACEMENT_RESERVE = "A46"
+    MANUAL_FREQUENCY_RESTORATION_RESERVE = "A47"
+    AUTOMATIC_FREQUENCY_RESTORATION_RESERVE = "A51"
+    FREQUENCY_CONTAINMENT_RESERVE = "A52"
+    FREQUENCY_RESTORATION_RESERVE = "A56"
+    SCHEDULED_ACTIVATION_MFRR = "A60"
+    DIRECT_ACTIVATION_MFRR = "A61"
+    CENTRAL_SELECTION_AFRR = "A67"
+    LOCAL_SELECTION_AFRR = "A68"

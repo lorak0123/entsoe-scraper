@@ -1,28 +1,56 @@
-import click
+"""Main script for fetching data from the ENTSO-E Transparency API and saving it to a CSV file."""
+
 from datetime import datetime
 
+import click
+
 from entsoe_api.api import EntsoeAPI
-from entsoe_api.enums import DocumentType, ProcessType, PsrType, DomainType
+from entsoe_api.enums import DocumentType, DomainType, ProcessType, PsrType
 from entsoe_api.exceptions import EntsoeApiError
 from entsoe_api.utils import LOGGER
 
 
 @click.command()
-@click.option('--start-date', '-s', required=True, help="Start date in format YYYY-MM-DD", type=str)
-@click.option('--end-date', '-e', required=True, help="End date in format YYYY-MM-DD", type=str)
-@click.option('--document-type', '-d', required=True, type=click.Choice([e.name for e in DocumentType]),
-              help="DocumentType for the request.")
-@click.option('--process-type', '-p', required=True, type=click.Choice([e.name for e in ProcessType]),
-              help="ProcessType for the request.")
-@click.option('--in-domain', '-i', required=True, type=click.Choice([e.name for e in DomainType]),
-              help="InDomainType for the request.")
-@click.option('--out-domain', '-o', default=None, type=click.Choice([e.name for e in DomainType]),
-              help="OutDomainType for the request.")
-@click.option('--psr-type', '-r', default='ALL', type=click.Choice([e.name for e in PsrType]),
-              help="PsrType for the request. Defaults to ALL.")
-@click.option('--output', '-f', help="Output file path for the CSV file.", type=str)
-@click.option('--api-key', '-k', required=True, help="Your ENTSO-E API key.")
-@click.option('--chunk_size', '-c', default=30, help="Chunk size for fetching data.", type=int)
+@click.option("--start-date", "-s", required=True, help="Start date in format YYYY-MM-DD", type=str)
+@click.option("--end-date", "-e", required=True, help="End date in format YYYY-MM-DD", type=str)
+@click.option(
+    "--document-type",
+    "-d",
+    required=True,
+    type=click.Choice([e.name for e in DocumentType]),
+    help="DocumentType for the request.",
+)
+@click.option(
+    "--process-type",
+    "-p",
+    required=True,
+    type=click.Choice([e.name for e in ProcessType]),
+    help="ProcessType for the request.",
+)
+@click.option(
+    "--in-domain",
+    "-i",
+    required=True,
+    type=click.Choice([e.name for e in DomainType]),
+    help="InDomainType for the request.",
+)
+@click.option(
+    "--out-domain",
+    "-o",
+    default=None,
+    type=click.Choice([e.name for e in DomainType]),
+    help="OutDomainType for the request.",
+)
+@click.option(
+    "--psr-type",
+    "-r",
+    default="ALL",
+    type=click.Choice([e.name for e in PsrType]),
+    help="PsrType for the request. Defaults to ALL.",
+)
+@click.option("--output", "-f", help="Output file path for the CSV file.", type=str)
+@click.option("--api-key", "-k", required=True, help="Your ENTSO-E API key.")
+@click.option("--chunk_size", "-c", default=30, help="Chunk size for fetching data.", type=int)
 def fetch_entsoe_data(
     start_date: str,
     end_date: str,
@@ -33,15 +61,13 @@ def fetch_entsoe_data(
     psr_type: str,
     output: str,
     api_key: str,
-    chunk_size: int
+    chunk_size: int,
 ):
-    """
-    Fetch data from the ENTSO-E Transparency API and save it to a CSV file.
-    """
+    """Fetch data from the ENTSO-E Transparency API and save it to a CSV file."""
     try:
         # Convert input string dates to datetime objects
-        start_date_dt = datetime.strptime(start_date, '%Y-%m-%d')
-        end_date_dt = datetime.strptime(end_date, '%Y-%m-%d')
+        start_date_dt = datetime.strptime(start_date, "%Y-%m-%d")
+        end_date_dt = datetime.strptime(end_date, "%Y-%m-%d")
 
         # Initialize the API client
         entsoe_api = EntsoeAPI(api_key, max_period_days=chunk_size)
@@ -56,7 +82,7 @@ def fetch_entsoe_data(
             process_type=ProcessType[process_type],
             in_domain=DomainType[in_domain],
             out_domain=DomainType[out_domain] if out_domain else None,
-            psr_type=PsrType[psr_type] if psr_type != 'ALL' else PsrType.ALL,
+            psr_type=PsrType[psr_type] if psr_type != "ALL" else PsrType.ALL,
         )
 
         if not output:

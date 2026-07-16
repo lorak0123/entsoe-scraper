@@ -2,7 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+
 ---
+
+## [1.2.0] - 2026-04-06
+
+### Added
+- Added `ENERGY_STORAGE` type with code `B25` to `PsrType` enum.
+- Added ruff linter to the project and configured it with a basic configuration in `pyproject.toml`.
+- Added pre-commit configuration
+- Added base set of tests for parsers
+- Added badges to the README for tests status, code quality, and repo health.
+
+### Changed
+- Refactored `DomainType` enum to simplify domain codes for BZN, CTA, and CTY; added all remaining domain codes — `DomainType` now covers all possible ENTSO-E area codes.
+- Improved docstrings across the codebase for better clarity and consistency.
+
 
 ## [1.1.0] - 2025-11-17
 
