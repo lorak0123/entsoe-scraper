@@ -93,11 +93,11 @@ def fetch_entsoe_data(
         df = entsoe_api.fetch_data(
             start_date=start_date_dt,
             end_date=end_date_dt,
-            document_type=DocumentType[document_type],
-            process_type=ProcessType[process_type],
-            in_domain=DomainType[in_domain],
-            out_domain=DomainType[out_domain] if out_domain else None,
-            psr_type=PsrType[psr_type] if psr_type != "ALL" else PsrType.ALL,
+            document_type=DocumentType.from_name(document_type),
+            process_type=ProcessType.from_name(process_type),
+            in_domain=DomainType.from_name(in_domain),
+            out_domain=DomainType.from_name(out_domain) if out_domain else None,
+            psr_type=PsrType.from_name(psr_type) if psr_type != "ALL" else PsrType.ALL,
             include_metadata=add_meta,
         )
 
